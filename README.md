@@ -47,42 +47,101 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
+```
+Step 1:
+Open Quartus II and select new project . Open new file at the verilog.
 
+Step 2:
+Module Declaration. Module should have the file name.
+
+Step 3:
+Input-Output Delecaration.
+
+Step 4:
+Use wire to define the functionality of logic circuits.
+
+Step 5:
+End the module.
+
+Step 6:
+Run the program and choose RTL viewer to get RTL realization.
+```
 
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+
+Program for flipflops  and verify its truth table in quartus using Verilog programming.  
+
+Developed by: KISHORE.B  
+
+RegisterNumber: 22001263  
+```
+MULTIPLEXER:-
+module multipluxer(I0,I1,I2,I3,S0,S1,Y);
+input I0,I1,I2,I3,S0,S1;
+output Y;
+wire S0C,S1C;
+not(S0C,S0);
+not(S1C,S1);
+wire P,Q,R,S;
+and(P,S0C,S1C,I0);
+and(Q,S0C,S1,I1);
+and(R,S0,S1C,I2);
+and(S,S0,S1,I3);
+or(Y,P,Q,R,S);
+endmodule  
+```
+```
+DEMULTIPLEXER:-
+module demultipluxer(y0,y1,y2,y3,s0,s1,i);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire s0c,s1c;
+nor(s0c,so);
+nor(s1c,s1);
+and(y0,i,s0c,s1c);
+and(y1,i,s0c,s1);
+and(y2,i,s0,s1c);
+and(y3,i,s0,s1);
+endmodule
+```
+
+### RTL LOGIC   
+### MULTIPLEXER:-
+![multiplexer](https://user-images.githubusercontent.com/121484538/214315197-8be489d5-2b4f-4db8-8819-90be2b1c88b6.png)
+
+### DEMULTIPLEXER:-
+![demultipluxer](https://user-images.githubusercontent.com/121484538/214315307-35126865-9dc2-42fb-9590-e7e20a675d18.png)
+
+
+### TIMING DIGRAMS 
+
+## MULTIPLEXER:-
+- WHEN I0=1
+![multiplexer-TM1](https://user-images.githubusercontent.com/121484538/214321015-64cfccf8-85ed-4ac9-b65a-ea427ed01e41.png)
+- WHEN I1=1 
+![multipluxer-TM2](https://user-images.githubusercontent.com/121484538/214321187-69ba281d-7c1c-4974-9818-cf0bced8e2d4.png)
+- WHEN I2=1
+![multiplexer-TM3](https://user-images.githubusercontent.com/121484538/214321275-941292d8-8f79-481b-87dd-2b9bed11bf6a.png)
+- WHEN I3=1
+![multiplexer-TM4](https://user-images.githubusercontent.com/121484538/214321447-f392757e-5b00-479f-beff-28a50519c726.png)
+
+## DE-MULTIPLEXER:-
+![demultiplexer-TM](https://user-images.githubusercontent.com/121484538/214321953-2116bbd7-fa41-4dc5-837d-0bb652238786.png)
+
+
+### TRUTH TABLE:-
+## MULTIPLEXER:   
+
+![Screenshot_20230124_082605](https://user-images.githubusercontent.com/121484538/214328117-147f7728-4ac3-41fa-a761-b9a362199bf7.png)
+
+
+## DE-MULTIPLEXER:   
+
+![Screenshot_20230124_082627](https://user-images.githubusercontent.com/121484538/214328160-9960887c-f5d0-4258-a8c1-33c276175594.png)
 
 
 
 
-
-
-### RTL LOGIC  
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
+### RESULTS:
+4 X1 multiplexer and 1X4 de multiplexer has been implemented using verilog and outputs are validated.
